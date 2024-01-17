@@ -1,7 +1,9 @@
 package com.example.recyclerview
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recyclerview.databinding.ActivityMainBinding
 
@@ -32,5 +34,10 @@ class MainActivity : AppCompatActivity() {
             layoutManager=LinearLayoutManager(this@MainActivity)
             adapter=contactoAdapter
         }
+    }
+
+    fun siguiente(view: View) {
+        var newIntent= Intent(this,Ajedrez::class.java)
+        startActivity(newIntent)
     }
 }
