@@ -29,7 +29,6 @@ class AnadirItems : AppCompatActivity() {
                 adapter=itemAdaptador
                 adapter!!.notifyDataSetChanged()
             }
-
         }
 
 

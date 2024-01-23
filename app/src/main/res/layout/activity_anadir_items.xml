@@ -9,7 +9,15 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/anadirView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/item_nuevo"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/anadirViewCheck"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:listitem="@layout/item_nuevo"
         />
 

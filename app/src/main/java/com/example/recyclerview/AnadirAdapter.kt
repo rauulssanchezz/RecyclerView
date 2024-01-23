@@ -12,6 +12,7 @@ class AnadirAdapter(var listaItem: MutableList<Item>, private val listener: Anad
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view){
         val binding= ItemNuevoBinding.bind(view)
         val borrar= ItemNuevoBinding.bind(view).borrar
+        val checked= ItemNuevoBinding.bind(view).checkBox
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -27,6 +28,7 @@ class AnadirAdapter(var listaItem: MutableList<Item>, private val listener: Anad
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item=listaItem.get(position)
         val borrar=holder.borrar
+        val checked=holder.checked
 
         holder.binding.nombre.text=item.nombre
         holder.binding.imagen.setImageResource(item.imagen!!)
@@ -34,6 +36,14 @@ class AnadirAdapter(var listaItem: MutableList<Item>, private val listener: Anad
         borrar.setOnClickListener {
             listaItem.removeAt(position)
             notifyDataSetChanged()
+        }
+
+        checked.setOnClickListener {
+            if (checked.isChecked) {
+                checked.isChecked = false
+            } else {
+                checked.isChecked = true
+            }
         }
     }
 }
