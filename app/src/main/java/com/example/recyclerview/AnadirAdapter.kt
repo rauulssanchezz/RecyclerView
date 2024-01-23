@@ -3,6 +3,7 @@ package com.example.recyclerview
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerview.databinding.ItemNuevoBinding
 
@@ -10,6 +11,7 @@ class AnadirAdapter(var listaItem: MutableList<Item>, private val listener: Anad
 
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view){
         val binding= ItemNuevoBinding.bind(view)
+        val borrar= ItemNuevoBinding.bind(view).borrar
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -24,7 +26,14 @@ class AnadirAdapter(var listaItem: MutableList<Item>, private val listener: Anad
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item=listaItem.get(position)
+        val borrar=holder.borrar
 
         holder.binding.nombre.text=item.nombre
+        holder.binding.imagen.setImageResource(item.imagen!!)
+
+        borrar.setOnClickListener {
+            listaItem.removeAt(position)
+            notifyDataSetChanged()
+        }
     }
 }

@@ -12,7 +12,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var contactoAdapter: ContactoAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val data = mutableListOf(
