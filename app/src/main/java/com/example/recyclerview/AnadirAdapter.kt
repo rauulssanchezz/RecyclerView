@@ -30,6 +30,10 @@ class AnadirAdapter(var listaItem: MutableList<Item>, private val listener: Anad
         val borrar=holder.borrar
         val checked=holder.checked
 
+        if (item.check) {
+            checked.isChecked = true
+        }
+
         holder.binding.nombre.text=item.nombre
         holder.binding.imagen.setImageResource(item.imagen!!)
 
@@ -40,9 +44,9 @@ class AnadirAdapter(var listaItem: MutableList<Item>, private val listener: Anad
 
         checked.setOnClickListener {
             if (checked.isChecked) {
-                checked.isChecked = false
+                item.check = true
             } else {
-                checked.isChecked = true
+                item.check = false
             }
         }
     }
